@@ -1,0 +1,259 @@
+@font-face {
+  font-family: inter-light;
+  src: url("../fonts/static/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: inter-bold;
+  src: url("../fonts/static/Inter-Bold.ttf");
+}
+@font-face {
+  font-family: inter-bolder;
+  src: url("../fonts/static/Inter-ExtraBold.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  font-family: inter-light;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+:root {
+  --Soft-orange: hsl(35, 77%, 62%);
+  --Soft-red: hsl(5, 85%, 63%);
+  --Off-white: hsl(36, 100%, 99%);
+  --Grayish-blue: hsl(233, 8%, 79%);
+  --Dark-grayish-blue: hsl(236, 13%, 42%);
+  --Very-dark-blue: hsl(240, 100%, 5%);
+}
+
+.container {
+  margin: 0 1rem;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 3rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0 0;
+}
+.header__logo {
+  width: 2rem;
+}
+.header__open-navbar {
+  background-color: transparent;
+  border: 0;
+}
+
+.navbar {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  width: 80%;
+  height: 100vh;
+  background-color: #fff;
+  transition: 0.5s;
+}
+.navbar__close {
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+  border: 0;
+  background-color: transparent;
+}
+.navbar__close img {
+  width: 2rem;
+}
+.navbar__container {
+  position: absolute;
+  top: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 2rem;
+}
+.navbar__container a {
+  font-size: 1.5rem;
+  color: var(--Very-dark-blue);
+}
+.navbar__container a:hover {
+  color: var(--Soft-red);
+}
+
+.main {
+  margin-top: -1.5rem;
+}
+.main__title {
+  color: var(--Very-dark-blue);
+  font-family: inter-bolder;
+  padding: 0.7rem 0;
+}
+.main__text {
+  color: var(--Very-dark-blue);
+  font-size: 0.813rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.main__button {
+  background-color: var(--Soft-red);
+  color: #fff;
+  font-size: 0.813rem;
+  letter-spacing: 3px;
+  padding: 0.7rem 1.5rem;
+}
+.main__button:hover {
+  background-color: var(--Very-dark-blue);
+}
+
+.aside {
+  background-color: var(--Very-dark-blue);
+  color: #fff;
+  padding: 1rem 0.8rem 0;
+}
+.aside__title {
+  color: var(--Soft-orange);
+}
+.aside div {
+  font-size: 0.725rem;
+  padding: 1rem 0;
+}
+.aside div h3 {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.aside div h3:hover {
+  color: var(--Soft-orange);
+}
+.aside div p {
+  color: var(--Grayish-blue);
+}
+.aside div + div {
+  border-top: thin solid var(--Dark-grayish-blue);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.section .card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.813rem;
+}
+.section .card h2 {
+  font-size: 0.813rem;
+  margin: 0.3rem 0;
+  cursor: pointer;
+}
+.section .card h2:hover {
+  color: var(--Soft-red);
+}
+.section .card span {
+  font-size: 1.1rem;
+  color: var(--Grayish-blue);
+}
+.section .card p {
+  color: var(--Dark-grayish-blue);
+  line-height: 1.5;
+}
+.section .card img {
+  height: 100px;
+  object-fit: cover;
+}
+
+@media (min-width: 950px) {
+  .container {
+    padding-bottom: 2rem;
+    grid-template-areas: "header header header header" "main main main aside" "section section section section";
+    column-gap: 1.5rem;
+    row-gap: 4rem;
+    width: 70%;
+    margin: auto;
+    max-width: 1440px;
+  }
+  .header {
+    grid-area: header;
+  }
+  .header__logo {
+    width: 4rem;
+  }
+  .header__open-navbar {
+    display: none;
+  }
+  .navbar {
+    position: static;
+    height: unset;
+    width: unset;
+  }
+  .navbar__close {
+    display: none;
+  }
+  .navbar__container {
+    position: static;
+    flex-direction: row;
+  }
+  .navbar__container a {
+    font-size: 1rem;
+  }
+  .main {
+    grid-area: main;
+    margin-top: -1rem;
+  }
+  .main img {
+    width: 100%;
+    height: 200px;
+  }
+  .main__title {
+    font-size: 2.5rem;
+  }
+  .main__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .main__container .left,
+  .main__container .right {
+    flex-basis: 45%;
+  }
+  .main__container .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .aside {
+    grid-area: aside;
+    margin-top: -1rem;
+    display: grid;
+  }
+  .aside__title {
+    font-size: 2.5rem;
+  }
+  .aside div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .section {
+    grid-area: section;
+    flex-direction: row;
+    gap: 3.5rem;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
